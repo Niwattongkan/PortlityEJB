@@ -25,6 +25,11 @@ public class user implements Serializable {
 	private String address;
 	private String email;
 	private String classroom;
+	private String Bdate;
+	private String hight;
+	private String wight; 
+	private String nationality;
+	private String userGoogle;
 
 	public long getUserID() {
 		return userID;
@@ -97,6 +102,48 @@ public class user implements Serializable {
 	public void setClassroom(String classroom) {
 		this.classroom = classroom;
 	}
+
+	public String getBdate() {
+		return Bdate;
+	}
+
+	public void setBdate(String bdate) {
+		Bdate = bdate;
+	}
+
+	public String getHight() {
+		return hight;
+	}
+
+	public void setHight(String hight) {
+		this.hight = hight;
+	}
+
+	public String getWight() {
+		return wight;
+	}
+
+	public void setWight(String wight) {
+		this.wight = wight;
+	}
+
+	public String getNationality() {
+		return nationality;
+	}	
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	
+	
+	public String getUserGoogle() {
+		return userGoogle;
+	}
+
+	public void setUserGoogle(String userGoogle) {
+		this.userGoogle = userGoogle;
+	}
+
 
 	@OneToOne(mappedBy = "user", cascade = { CascadeType.ALL })
 	private typeUser typeUser;

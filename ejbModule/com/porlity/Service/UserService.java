@@ -13,4 +13,5 @@ public interface UserService {
 	public List<user> getAllUser();
 	public List<user> getfindbyID(String id);
 	public List<user> getfindbyUsername(String name);
+	public List<user> getfindbyGoogle(String token_id);
 }
