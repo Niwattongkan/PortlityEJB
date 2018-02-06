@@ -11,17 +11,17 @@ import javax.persistence.Id;
 public class information implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long informationID;
+	private long informationId;
 	private String title;
 	private String body;
 	private String image;
 	private String date;
 	private String status;
 	public long getInformationID() {
-		return informationID;
+		return informationId;
 	}
-	public void setInformationID(long informationID) {
-		this.informationID = informationID;
+	public void setInformationID(long informationId) {
+		this.informationId = informationId;
 	}
 	public String getTitle() {
 		return title;
