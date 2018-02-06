@@ -45,5 +45,8 @@ public class UserServiecBean implements UserService{
 		return this.port.createQuery("SELECT port FROM user port WHERE port.TypeName LIKE :uf").setParameter("uf", TypeName + "%")
 				.getResultList();
 	}
-	
+	public List<user> getfindbyGoogleToken(String Token) {
+		return this.port.createQuery("SELECT * FROM user WHERE userGoogle != '' LIKE :uf").setParameter("uf", Token + "%")
+				.getResultList();
+	}
 }
