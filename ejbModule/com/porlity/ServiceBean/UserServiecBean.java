@@ -23,11 +23,12 @@ public class UserServiecBean implements UserService {
 	public user findUser(long UserID) {
 		return this.port.find(user.class, UserID);
 	}
-
+	public user findIdGoogle(String userGoogle){
+		return this.port.find(user.class, userGoogle);
+	}
 	public void update(user user) {
 		this.port.merge(user);
 	}
-
 	public void delete(long UserID) {
 		user user = findUser(UserID);
 		if (user != null) {
