@@ -8,6 +8,7 @@ import com.porlity.entity.user;
 public interface UserService {
 	public void insert(user user);
 	public user findUser(long UserID);
+	public user findIdGoogle(String userGoogle);
 	public void update(user user);
 	public void delete(long UserID);
 	public List<user> getAllUser();
