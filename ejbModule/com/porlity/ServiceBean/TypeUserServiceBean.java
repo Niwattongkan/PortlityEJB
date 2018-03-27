@@ -31,11 +31,11 @@ public class TypeUserServiceBean implements TypeUserService{
 		}
 	}
 	public List<typeUser> findtypeUserByName(String Name){
-		return this.port.createQuery("SELECT ent FROM typeUser ent WHERE ent.Name =:param")
-							.setParameter("param", Name).getResultList();
+		return this.port.createQuery("SELECT port FROM typeUser port WHERE port.Name =:st")
+							.setParameter("st", Name).getResultList();
 	}
 	public List<typeUser> findtypeUserbyUesr(long uesrID){
-		return this.port.createQuery("SELECT ent FROM typeUser ent.user.name =:param")
+		return this.port.createQuery("SELECT port FROM typeUser WHERE port.typeUser.userId =:param")
 				.setParameter("param", uesrID).getResultList();
 	}
 }

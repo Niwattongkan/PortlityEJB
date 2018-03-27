@@ -33,11 +33,14 @@ public class PortfolioServiceBean implements PortfolioService{
 		}
 	}
 	public List<portfolio> getAllPortfolio() {
-		return this.port.createQuery("SELECT ent FROM portfolio ent").getResultList();
+		return this.port.createQuery("SELECT port FROM portfolio ent").getResultList();
 	}
-	public List<portfolio> findPortfolioByStudent(long empId) {
-		return this.port.createQuery("SELECT ent FROM portfolio ent WHERE ent.User.UserId =:param")
-				.setParameter("param", empId).getResultList();
+	public List<portfolio> findPortfolioByStudentId(long Id) {
+		return this.port.createQuery("SELECT port FROM portfolio port WHERE port.userID =:param")
+				.setParameter("param", Id).getResultList();
 	}
-
+	public List<portfolio> getPortfoliofindbyUserId(String userId){
+		return this.port.createQuery("SELECT port FROM portfolio.userId = :st")
+				.setParameter("st", userId).getResultList();
+	}
 }

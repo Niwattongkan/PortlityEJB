@@ -17,18 +17,20 @@ public class user implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long userID;
-	private String username;
-	private String password;
-	private String nicname;
-	private String name;
-	private String surname;
+	private String nicName;
+	private String firstName;
+	private String surName;
 	private String address;
 	private String email;
 	private String classroom;
-	private String Bdate;
+	private String birthDay;
+	private String age;
+	private String phone;
 	private String hight;
 	private String wight; 
-	private String nationality;
+	private String historyEducattionPrimary;
+	private String historyEducattionHihgthschool13;
+	private String historyEducattionHihgthschool46;
 	private String userGoogle;
 
 	public long getUserID() {
@@ -39,44 +41,28 @@ public class user implements Serializable {
 		this.userID = userID;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getNicName() {
+		return nicName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setNicName(String nicName) {
+		this.nicName = nicName;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getNicname() {
-		return nicname;
+	public String getSurName() {
+		return surName;
 	}
 
-	public void setNicname(String nicname) {
-		this.nicname = nicname;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setSurName(String surName) {
+		this.surName = surName;
 	}
 
 	public String getAddress() {
@@ -103,12 +89,28 @@ public class user implements Serializable {
 		this.classroom = classroom;
 	}
 
-	public String getBdate() {
-		return Bdate;
+	public String getBirthDay() {
+		return birthDay;
 	}
 
-	public void setBdate(String bdate) {
-		Bdate = bdate;
+	public void setBirthDay(String birthDay) {
+		this.birthDay = birthDay;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getHight() {
@@ -127,15 +129,30 @@ public class user implements Serializable {
 		this.wight = wight;
 	}
 
-	public String getNationality() {
-		return nationality;
-	}	
-
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
+	public String getHistoryEducattionPrimary() {
+		return historyEducattionPrimary;
 	}
-	
-	
+
+	public void setHistoryEducattionPrimary(String historyEducattionPrimary) {
+		this.historyEducattionPrimary = historyEducattionPrimary;
+	}
+
+	public String getHistoryEducattionHihgthschool13() {
+		return historyEducattionHihgthschool13;
+	}
+
+	public void setHistoryEducattionHihgthschool13(String historyEducattionHihgthschool13) {
+		this.historyEducattionHihgthschool13 = historyEducattionHihgthschool13;
+	}
+
+	public String getHistoryEducattionHihgthschool46() {
+		return historyEducattionHihgthschool46;
+	}
+
+	public void setHistoryEducattionHihgthschool46(String historyEducattionHihgthschool46) {
+		this.historyEducattionHihgthschool46 = historyEducattionHihgthschool46;
+	}
+
 	public String getUserGoogle() {
 		return userGoogle;
 	}
@@ -143,7 +160,6 @@ public class user implements Serializable {
 	public void setUserGoogle(String userGoogle) {
 		this.userGoogle = userGoogle;
 	}
-
 
 	@OneToOne(mappedBy = "user", cascade = { CascadeType.ALL })
 	private typeUser typeUser;
@@ -166,4 +182,15 @@ public class user implements Serializable {
 	public void setPortfolio(List<portfolio> portfolio) {
 		this.portfolio = portfolio;
 	}
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
+	private List<activity> activity;
+
+	public List<activity> getActivity() {
+		return activity;
+	}
+
+	public void setActivity(List<activity> activity) {
+		this.activity = activity;
+	}
+	
 }

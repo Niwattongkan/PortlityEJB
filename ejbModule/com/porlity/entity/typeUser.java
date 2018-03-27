@@ -16,8 +16,10 @@ public class typeUser implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long typeUserID;
-	private String typename;
-
+	private int typename;
+// 1 = student
+// 2 = admin
+// 3 = vister
 	public long getTypeUserID() {
 		return typeUserID;
 	}
@@ -26,14 +28,13 @@ public class typeUser implements Serializable {
 		this.typeUserID = typeUserID;
 	}
 
-	public String getTypename() {
+	public int getTypename() {
 		return typename;
 	}
 
-	public void setTypename(String typename) {
+	public void setTypename(int typename) {
 		this.typename = typename;
 	}
-
 	@OneToOne
 	private user user;
 

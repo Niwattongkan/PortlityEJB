@@ -10,5 +10,6 @@ public interface PortfolioService {
 	public void update(portfolio portfolio);
 	public void delete(long PortfolioID);
 	public List<portfolio> getAllPortfolio();
-	public List<portfolio> findPortfolioByStudent(long empId);
+	public List<portfolio> findPortfolioByStudentId(long Id);
+	public List<portfolio> getPortfoliofindbyUserId(String userId);
 }
