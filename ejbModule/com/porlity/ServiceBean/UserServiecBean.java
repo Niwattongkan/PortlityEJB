@@ -19,7 +19,6 @@ public class UserServiecBean implements UserService {
 	public void insert(user user) {
 		this.port.persist(user);
 	}
-
 	public user findUser(long UserID) {
 		return this.port.find(user.class, UserID);
 	}
@@ -39,10 +38,12 @@ public class UserServiecBean implements UserService {
 	public List<user> getAllUser() {
 		return this.port.createQuery("SELECT ent FROM user ent").getResultList();
 	}
-
-	public List<user> getfindbyID(String id) {
-		return this.port.createQuery("SELECT port FROM user port WHERE port.UserID LIKE :st")
-				.setParameter("st", id + "%").getResultList();
+	public List<user> getAlluserGoogle(){
+		return this.port.createQuery("SELECT userGoogle FROM user").getResultList();
+	}
+	public List<user> getfindbyID(long id) {
+		return this.port.createQuery("SELECT port FROM user port WHERE port.userID LIKE :st")
+				.setParameter("st", id ).getResultList();
 	}
 
 	public List<user> getfindbyUsername(String name) {
@@ -55,8 +56,11 @@ public class UserServiecBean implements UserService {
 				.setParameter("uf", TypeName + "%").getResultList();
 	}
 
-	public List<user> getfindbyGoogle(String token_id) {
-		return this.port.createQuery("SELECT userGoogle FORM user WHERE user.userGoogle LIKE :st")
-				.setParameter("st", token_id + "%").getResultList();
+	public List<user> getfindbyGoogle(String userId) {
+		return this.port.createQuery("SELECT port FROM user port WHERE port.userGoogle = :st")
+				.setParameter("st", userId ).getResultList();
+	}
+	public List<user> getfindbyuserGoogle(String token_id){
+		return this.port.createQuery("SELECT userGoogle FROM projectportlity.user").getResultList();
 	}
 }

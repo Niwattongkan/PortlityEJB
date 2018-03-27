@@ -10,41 +10,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
-public class portfolio implements Serializable {
+public class activity implements Serializable{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long portfolioID;
-
-	public long getPortfolioID() {
-		return portfolioID;
+	private long activityId;
+	private String page;
+	public long getActivityId() {
+		return activityId;
 	}
-
-	public void setPortfolioID(long portfolioID) {
-		this.portfolioID = portfolioID;
+	public void setActivityId(long activityId) {
+		this.activityId = activityId;
 	}
-	
-	@ManyToOne
-	private user user;
-	public user getUser() {
-		return user;
+	public String getPage() {
+		return page;
 	}
-	public void setUser(user user) {
-		this.user = user;
+	public void setPage(String page) {
+		this.page = page;
 	}
-	@ManyToOne
-	private school school;
-
-	public school getSchool() {
-		return school;
-	}
-
-	public void setSchool(school school) {
-		this.school = school;
-	}
-	@OneToMany(mappedBy ="portfolio", cascade = { CascadeType.ALL })
+	@OneToMany(mappedBy ="activity", cascade = { CascadeType.ALL })
 	private List<portfolioDetail> portfolioDetail;
 
 	public List<portfolioDetail> getPortfolioDetail() {
@@ -54,5 +40,14 @@ public class portfolio implements Serializable {
 	public void setPortfolioDetail(List<portfolioDetail> portfolioDetail) {
 		this.portfolioDetail = portfolioDetail;
 	}
+	@ManyToOne
+	private user user;
+	public user getUser() {
+		return user;
+	}
+	public void setUser(user user) {
+		this.user = user;
+	}
+	
 	
 }

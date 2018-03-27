@@ -1,11 +1,14 @@
 package com.porlity.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class school implements Serializable{
@@ -39,5 +42,15 @@ public class school implements Serializable{
 	}
 	public void setArea(String area) {
 		this.area = area;
+	}
+	@OneToMany(mappedBy = "school", cascade = { CascadeType.ALL })
+	private List<portfolio> portfolio;
+
+	public List<portfolio> getPortfolio() {
+		return portfolio;
+	}
+
+	public void setPortfolio(List<portfolio> portfolio) {
+		this.portfolio = portfolio;
 	}
 }

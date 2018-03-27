@@ -12,7 +12,9 @@ public interface UserService {
 	public void update(user user);
 	public void delete(long UserID);
 	public List<user> getAllUser();
-	public List<user> getfindbyID(String id);
+	public List<user> getfindbyID(long id);
 	public List<user> getfindbyUsername(String name);
 	public List<user> getfindbyGoogle(String token_id);
+	public List<user> getfindbyuserGoogle(String token_id);
+	public List<user> getAlluserGoogle();
 }
