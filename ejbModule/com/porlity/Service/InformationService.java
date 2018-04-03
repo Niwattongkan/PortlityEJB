@@ -9,5 +9,5 @@ public interface InformationService {
 	public information findInformation(long informationID);
 	public void update(information information);
 	public void delete(long informationID);
-	public List<information> getAllInformation();
+	public List<information> getAllInformation(long id);
 }

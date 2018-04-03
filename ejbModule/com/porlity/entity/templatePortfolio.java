@@ -1,14 +1,24 @@
 package com.porlity.entity;
 
-public class templatePortfolio {
-	private long templatePortfolio;
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class templatePortfolio implements Serializable{
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long templatePortfolioId;
 	private String title;
 	private String bodyHTML;
-	public long getTemplatePortfolio() {
-		return templatePortfolio;
+	public long getTemplatePortfolioId() {
+		return templatePortfolioId;
 	}
-	public void setTemplatePortfolio(long templatePortfolio) {
-		this.templatePortfolio = templatePortfolio;
+	public void setTemplatePortfolioId(long templatePortfolioId) {
+		this.templatePortfolioId = templatePortfolioId;
 	}
 	public String getTitle() {
 		return title;
@@ -22,6 +32,6 @@ public class templatePortfolio {
 	public void setBodyHTML(String bodyHTML) {
 		this.bodyHTML = bodyHTML;
 	}
-	
+
 	
 }

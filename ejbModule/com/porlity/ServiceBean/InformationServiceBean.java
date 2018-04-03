@@ -33,7 +33,8 @@ public class InformationServiceBean implements InformationService{
 			this.port.remove(information);
 		}
 	}
-	public List<information> getAllInformation() {
-		return this.port.createQuery("SELECT ent FROM information ent").getResultList();
+	public List<information> getAllInformation(long id) {
+		return this.port.createQuery("SELECT port FROM information port WHERE port.informationId LIKE :st")
+				.setParameter("st", id ).getResultList();
 	}
 }
