@@ -9,18 +9,21 @@ import javax.persistence.Id;
 
 @Entity
 public class information implements Serializable{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private long informationId;
+	
 	private String title;
 	private String body;
 	private String image;
 	private String date;
 	private String status;
-	public long getInformationID() {
+	public long getInformationId() {
 		return informationId;
 	}
-	public void setInformationID(long informationId) {
+	public void setInformationId(long informationId) {
 		this.informationId = informationId;
 	}
 	public String getTitle() {

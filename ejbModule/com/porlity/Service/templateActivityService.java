@@ -10,4 +10,5 @@ public interface templateActivityService {
 	public void update(templateActivity templateActivity);
 	public void delete(long temId);
 	public List<templateActivity> gettemplateActivty(long id);
+	public List<templateActivity> getAll();
 }

@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.porlity.Service.templateActivityService;
+import com.porlity.entity.information;
 import com.porlity.entity.templateActivity;
 
 @Stateless
@@ -34,5 +35,8 @@ public class templateActivityServiceBean {
 	public List<templateActivity> gettemplateActivty(long id){
 		return this.port.createQuery("SELECT port FROM templateActivity port WHERE port.templateActivityId LIKE :st")
 				.setParameter("st", id).getResultList();
+	}
+	public List<templateActivity> getAll(){
+		return port.createQuery("SELECT x FROM templateActivity x").getResultList();
 	}
 }
